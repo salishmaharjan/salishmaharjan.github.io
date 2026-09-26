@@ -1,12 +1,279 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My GitHub Page</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Salish Maharjan is a power systems engineer working on grid-forming resources, microgrids, large-load modeling, and distribution system resilience.">
+  <meta name="theme-color" content="#f5f6f1">
+  <title>Salish Maharjan | Power Systems Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,500;6..72,600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #f5f6f1;
+      --ink: #18231f;
+      --muted: #58645e;
+      --line: #d9ded6;
+      --green: #176a4b;
+      --green-dark: #124d39;
+      --lime: #d8f06c;
+      --orange: #e56a44;
+      --white: #fff;
+      --serif: "Newsreader", Georgia, serif;
+      --sans: "DM Sans", sans-serif;
+      --mono: "DM Mono", monospace;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font: 16px/1.65 var(--sans);
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; }
+    a:focus-visible { outline: 3px solid var(--orange); outline-offset: 4px; }
+    .skip-link { position: absolute; left: 1rem; top: -5rem; z-index: 10; padding: .7rem 1rem; background: var(--lime); color: var(--ink); }
+    .skip-link:focus { top: 1rem; }
+    .shell { width: min(1120px, calc(100% - 48px)); margin: 0 auto; }
+    .topbar { border-bottom: 1px solid var(--line); }
+    .nav { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .wordmark { font: 500 14px var(--mono); text-decoration: none; letter-spacing: 0; }
+    .nav-links { display: flex; flex-wrap: wrap; gap: 28px; align-items: center; }
+    .nav-links a { font-size: 13px; font-weight: 600; text-decoration: none; color: var(--muted); }
+    .nav-links a:hover { color: var(--green); }
+    .nav-contact { border: 1px solid var(--green); padding: 8px 13px; color: var(--green) !important; }
+    .hero { position: relative; overflow: hidden; padding: 90px 0 80px; border-bottom: 1px solid var(--line); }
+    .hero::after {
+      content: ""; position: absolute; inset: 0 0 0 54%; z-index: -1;
+      background-image: linear-gradient(rgba(23,106,75,.08) 1px, transparent 1px), linear-gradient(90deg, rgba(23,106,75,.08) 1px, transparent 1px);
+      background-size: 32px 32px; mask-image: linear-gradient(90deg, transparent, #000 28%, #000);
+    }
+    .hero-grid { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(230px, .65fr); gap: 56px; align-items: end; }
+    .eyebrow, .section-kicker, .meta, .tag { font: 500 11px/1.5 var(--mono); letter-spacing: .04em; text-transform: uppercase; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 10px; color: var(--green); }
+    .eyebrow::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--orange); }
+    h1 { max-width: 750px; margin: 24px 0 20px; font: 500 clamp(54px, 7.5vw, 96px)/.98 var(--serif); letter-spacing: 0; }
+    .hero-copy { max-width: 650px; margin: 0; color: var(--muted); font-size: 18px; line-height: 1.65; }
+    .hero-copy strong { color: var(--ink); font-weight: 600; }
+    .hero-aside { border-left: 2px solid var(--green); padding: 8px 0 8px 22px; }
+    .hero-aside .meta { color: var(--muted); }
+    .hero-aside p { margin: 9px 0 0; font-size: 15px; }
+    .hero-aside a { color: var(--green); text-underline-offset: 3px; }
+    .metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; margin-top: 55px; background: var(--line); border: 1px solid var(--line); }
+    .metric { min-height: 112px; padding: 20px 22px; background: var(--paper); }
+    .metric strong { display: block; font: 500 30px/1.15 var(--serif); }
+    .metric span { display: block; margin-top: 8px; color: var(--muted); font: 11px var(--mono); text-transform: uppercase; }
+    section { padding: 76px 0; border-bottom: 1px solid var(--line); }
+    .section-head { display: grid; grid-template-columns: 190px 1fr; gap: 32px; margin-bottom: 34px; }
+    .section-kicker { color: var(--green); padding-top: 8px; }
+    h2 { margin: 0; font: 500 42px/1.1 var(--serif); letter-spacing: 0; }
+    .section-intro { max-width: 690px; margin: 12px 0 0; color: var(--muted); }
+    .work-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .work-item { display: flex; flex-direction: column; min-height: 260px; padding: 24px; background: var(--white); border-top: 3px solid var(--green); }
+    .work-item:nth-child(2) { border-color: var(--orange); }
+    .work-item:nth-child(3) { border-color: #9ab52f; }
+    .work-item .meta { color: var(--muted); }
+    .work-item h3 { margin: 24px 0 10px; font: 600 22px/1.2 var(--serif); }
+    .work-item p { margin: 0; color: var(--muted); font-size: 14px; }
+    .experience { display: grid; grid-template-columns: 190px 1fr; gap: 32px; padding: 26px 0; border-top: 1px solid var(--line); }
+    .experience:first-of-type { border-top: 0; padding-top: 0; }
+    .experience time { color: var(--muted); font: 11px/1.7 var(--mono); text-transform: uppercase; }
+    .experience h3 { margin: 0; font-size: 17px; line-height: 1.4; }
+    .experience .org { margin: 3px 0 12px; color: var(--green); font-size: 14px; font-weight: 600; }
+    .experience ul { margin: 0; padding-left: 19px; color: var(--muted); font-size: 14px; }
+    .experience li + li { margin-top: 5px; }
+    .pub-list { border-top: 1px solid var(--line); }
+    .publication { display: grid; grid-template-columns: 72px 1fr; gap: 20px; padding: 20px 0; border-bottom: 1px solid var(--line); }
+    .publication time { color: var(--green); font: 500 12px var(--mono); }
+    .publication h3 { margin: 0; font-size: 15px; line-height: 1.5; font-weight: 600; }
+    .publication p { margin: 5px 0 0; color: var(--muted); font-size: 13px; }
+    .more-pubs { margin: 18px 0 0; color: var(--muted); font-size: 13px; }
+    .credentials { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+    .credential-group h3 { margin: 0 0 16px; font: 500 23px var(--serif); }
+    .credential-list { list-style: none; margin: 0; padding: 0; }
+    .credential-list li { padding: 12px 0; border-top: 1px solid var(--line); }
+    .credential-list strong { display: block; font-size: 14px; }
+    .credential-list span { color: var(--muted); font-size: 13px; }
+    .skills { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tag { padding: 8px 10px; background: #e8ece5; color: #30423a; text-transform: none; letter-spacing: 0; }
+    .contact { display: flex; justify-content: space-between; align-items: center; gap: 24px; padding: 48px 0; }
+    .contact h2 { font-size: 36px; }
+    .contact p { margin: 8px 0 0; color: var(--muted); }
+    .email-link { display: inline-block; padding: 13px 18px; background: var(--green); color: var(--white); font-weight: 600; text-decoration: none; white-space: nowrap; }
+    .email-link:hover { background: var(--green-dark); }
+    footer { padding: 18px 0 28px; color: var(--muted); font: 10px var(--mono); }
+    .footer-row { display: flex; justify-content: space-between; gap: 20px; }
+    @media (max-width: 760px) {
+      .shell { width: min(100% - 32px, 600px); }
+      .nav { min-height: 68px; align-items: flex-start; flex-direction: column; justify-content: center; gap: 8px; padding: 12px 0; }
+      .nav-links { gap: 16px; }
+      .nav-links a { font-size: 12px; }
+      .nav-contact { padding: 0; border: 0; }
+      .hero { padding: 62px 0 54px; }
+      .hero::after { inset: 0 0 0 22%; opacity: .55; }
+      .hero-grid { grid-template-columns: 1fr; gap: 34px; }
+      h1 { font-size: clamp(52px, 14vw, 76px); }
+      .hero-copy { font-size: 16px; }
+      .metrics { margin-top: 38px; }
+      .metric { min-height: 98px; padding: 15px 12px; }
+      .metric strong { font-size: 25px; }
+      .metric span { font-size: 9px; }
+      section { padding: 55px 0; }
+      .section-head, .experience { grid-template-columns: 1fr; gap: 10px; }
+      .section-head { margin-bottom: 26px; }
+      h2 { font-size: 36px; }
+      .work-grid { grid-template-columns: 1fr; }
+      .work-item { min-height: 0; }
+      .work-item h3 { margin-top: 18px; }
+      .experience { gap: 8px; }
+      .credentials { grid-template-columns: 1fr; gap: 35px; }
+      .contact { align-items: flex-start; flex-direction: column; }
+      .contact h2 { font-size: 32px; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  </style>
 </head>
 <body>
-    <h1>Hello, world!</h1>
-    <p>Welcome to my new website built on GitHub Pages.</p>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="topbar">
+    <nav class="nav shell" aria-label="Main navigation">
+      <a class="wordmark" href="#top">SM / POWER SYSTEMS</a>
+      <div class="nav-links">
+        <a href="#work">Selected work</a>
+        <a href="#experience">Experience</a>
+        <a href="#publications">Publications</a>
+        <a href="#about">About</a>
+        <a class="nav-contact" href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+  <main id="main">
+    <div class="hero" id="top">
+      <div class="shell">
+        <div class="hero-grid">
+          <div>
+            <div class="eyebrow">Power systems engineer · Minnesota, USA</div>
+            <h1>Salish<br>Maharjan</h1>
+            <p class="hero-copy"><strong>Building resilient, reliable power systems.</strong> I work across grid dynamics, inverter-based resources, microgrids, and large-load modeling, translating research into tools that help utilities plan and operate the grid.</p>
+          </div>
+          <aside class="hero-aside">
+            <div class="meta">Current position</div>
+            <p><strong>Senior Power Systems Engineer</strong><br>INS Engineering · Texas<br>August 2026–present</p>
+            <p><a href="mailto:salish.mrj@gmail.com">salish.mrj@gmail.com</a></p>
+          </aside>
+        </div>
+        <div class="metrics" aria-label="Career highlights">
+          <div class="metric"><strong>Ph.D.</strong><span>Electrical &amp; computer engineering</span></div>
+          <div class="metric"><strong>3</strong><span>IEEE PESGM best paper awards</span></div>
+          <div class="metric"><strong>15+</strong><span>Years in power and energy research</span></div>
+        </div>
+      </div>
+    </div>
+
+    <section id="work">
+      <div class="shell">
+        <div class="section-head">
+          <div class="section-kicker">01 / Selected work</div>
+          <div><h2>Research with a grid-scale view.</h2><p class="section-intro">A selection of engineering and research efforts spanning emerging large loads, community energy, and distribution-grid restoration.</p></div>
+        </div>
+        <div class="work-grid">
+          <article class="work-item">
+            <div class="meta">Large loads · EMT modeling</div>
+            <h3>Data centers and grid dynamics</h3>
+            <p>Developing parameterized electromagnetic transient models for data-center loads and benchmarking against PSS®E PERC1, with frequency scans for small-signal stability and interconnection studies.</p>
+          </article>
+          <article class="work-item">
+            <div class="meta">DOE · Community microgrid</div>
+            <h3>Renewable energy for rural Iowa</h3>
+            <p>Led technical work on a renewable community microgrid with Montezuma Light &amp; Power, including techno-economic analysis and pathways to resilient local energy.</p>
+          </article>
+          <article class="work-item">
+            <div class="meta">DOE · RECHARGE</div>
+            <h3>Resilience for charging networks</h3>
+            <p>Connected weather, outage, feeder, and EV charging data to resilience metrics, restoration models, and investment planning for more reliable distribution grids.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="shell">
+        <div class="section-head">
+          <div class="section-kicker">02 / Experience</div>
+          <div><h2>Engineering and research.</h2><p class="section-intro">Applied power-systems work informed by academic research and collaboration with utilities, industry, and public-sector partners.</p></div>
+        </div>
+        <article class="experience">
+          <time>Aug 2026–present</time>
+          <div><h3>Senior Power Systems Engineer</h3><p class="org">INS Engineering · Texas</p><ul><li>Model and benchmark large-load behavior in PSCAD and PSS®E.</li><li>Perform frequency scans for small-signal stability and support IBR interconnection studies.</li></ul></div>
+        </article>
+        <article class="experience">
+          <time>Aug 2024–Jul 2026</time>
+          <div><h3>Research Assistant Professor, Electrical and Computer Engineering</h3><p class="org">Iowa State University</p><ul><li>Led DOE-supported community microgrid and EV charging resilience projects with utility partners.</li><li>Directed techno-economic analysis, grid resilience modeling, geospatial planning, and Ph.D. student research.</li></ul></div>
+        </article>
+        <article class="experience">
+          <time>Mar 2022–Aug 2024</time>
+          <div><h3>Postdoctoral Research Associate, Electrical and Computer Engineering</h3><p class="org">Iowa State University</p><ul><li>Developed black-start and restoration methods for utility feeders using grid-forming and grid-following inverters.</li><li>Built analytical sensitivity methods and decentralized voltage-control algorithms for distribution systems.</li></ul></div>
+        </article>
+        <article class="experience">
+          <time>Aug 2020–Feb 2022</time>
+          <div><h3>Postdoctoral Research Fellow</h3><p class="org">National University of Singapore</p><ul><li>Developed cloud-enabled predictive control for building energy systems integrating HVAC, storage, solar PV, and loads.</li></ul></div>
+        </article>
+      </div>
+    </section>
+
+    <section id="publications">
+      <div class="shell">
+        <div class="section-head">
+          <div class="section-kicker">03 / Publications</div>
+          <div><h2>Recent papers.</h2><p class="section-intro">Selected work on restoration, microgrid formation, distribution-system resilience, and inverter-based resources.</p></div>
+        </div>
+        <div class="pub-list">
+          <article class="publication"><time>2026</time><div><h3>Simulation-in-the-Loop Black-Box Restoration Using Adaptive Feeder Participation and Direct Search</h3><p>J. Zheng, W. Shi, S. Maharjan, and Z. Wang · IEEE Transactions on Power Systems</p></div></article>
+          <article class="publication"><time>2026</time><div><h3>Model Predictive Black Start for Dynamic Formation of DER-Led Microgrids with Inrush Current Impacts</h3><p>C. Bai, S. Maharjan, and Z. Wang · IEEE Transactions on Smart Grid</p></div></article>
+          <article class="publication"><time>2026</time><div><h3>Data-driven quantification and visualization of resilience metrics of power distribution systems</h3><p>D. Wang, S. Maharjan, et al. · Scientific Reports</p></div></article>
+          <article class="publication"><time>2025</time><div><h3>Remote Islanded Microgrid: A feasible and economical solution for providing resilience and reliability to power systems in rural areas</h3><p>Y. Li, Z. Wang, and S. Maharjan · IEEE Electrification Magazine</p></div></article>
+          <article class="publication"><time>2024</time><div><h3>Generalized Analytical Estimation of Sensitivity Matrices in Unbalanced Distribution Networks</h3><p>S. Maharjan and Z. Wang · IEEE Transactions on Power Systems</p></div></article>
+        </div>
+        <p class="more-pubs">Also published in IEEE Transactions on Sustainable Energy, IEEE Transactions on Power Delivery, IET Generation, Transmission &amp; Distribution, Applied Energy, and Sustainable Energy, Grids and Networks.</p>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="shell">
+        <div class="section-head">
+          <div class="section-kicker">04 / About</div>
+          <div><h2>Systems thinking, from models to field needs.</h2><p class="section-intro">My work combines power-system dynamics, optimization, and data analysis to address practical challenges in grid operation, planning, and resilience.</p></div>
+        </div>
+        <div class="credentials">
+          <div class="credential-group">
+            <h3>Education &amp; recognition</h3>
+            <ul class="credential-list">
+              <li><strong>Ph.D., Electrical and Computer Engineering</strong><span>National University of Singapore · 2015–2020</span></li>
+              <li><strong>M.Sc., Electrical Power Engineering</strong><span>Masdar Institute / MIT · 2013–2015</span></li>
+              <li><strong>B.E., Electrical Engineering</strong><span>Tribhuvan University · 2005–2010</span></li>
+              <li><strong>IEEE PESGM Best Paper Awards</strong><span>2023, 2025, and 2026</span></li>
+              <li><strong>Professional Engineer</strong><span>Electrical Power Engineering · Senior Member, IEEE</span></li>
+            </ul>
+          </div>
+          <div class="credential-group">
+            <h3>Areas of expertise</h3>
+            <div class="skills">
+              <span class="tag">EMT &amp; large-load modeling</span><span class="tag">Microgrid formation</span><span class="tag">Black start &amp; restoration</span><span class="tag">Inverter-based resources</span><span class="tag">Grid resilience</span><span class="tag">Voltage control</span><span class="tag">Model predictive control</span><span class="tag">Distribution planning</span><span class="tag">Sensitivity analysis</span><span class="tag">Optimization</span><span class="tag">PSCAD</span><span class="tag">PSS®E</span><span class="tag">OpenDSS</span><span class="tag">Python · MATLAB</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="shell contact" id="contact">
+      <div><div class="section-kicker">Get in touch</div><h2>Let’s talk about the grid.</h2><p>For research, engineering, and collaboration inquiries.</p></div>
+      <a class="email-link" href="mailto:salish.mrj@gmail.com">Email Salish</a>
+    </div>
+  </main>
+  <footer><div class="shell footer-row"><span>© 2026 Salish Maharjan</span><span>Power systems · Research · Resilience</span></div></footer>
 </body>
 </html>
