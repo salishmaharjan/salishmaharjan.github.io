@@ -57,6 +57,8 @@ h3 { margin: 0; font: 600 22px/1.2 var(--serif); }
 .fact-list li { padding: 11px 0; border-top: 1px solid var(--line); }
 .fact-list strong { display: block; font-size: 13px; line-height: 1.45; }
 .fact-list span { display: block; margin-top: 3px; color: var(--muted); font-size: 12px; }
+.fact-list .credential-sublist { margin: 8px 0 0; padding: 0 0 0 20px; color: var(--muted); font-size: 12px; }
+.fact-list .credential-sublist li { padding: 4px 0; border: 0; }
 .skill-list { display: flex; flex-wrap: wrap; gap: 7px; }
 .tag { padding: 6px 8px; border: 1px solid var(--line); color: #34443c; text-transform: none; letter-spacing: 0; }
 .work-list { margin-top: 38px; border-top: 1px solid var(--line); }
